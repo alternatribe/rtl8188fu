@@ -2,6 +2,24 @@ RTL8188FU driver for Linux kernel 4.15.x ~ 5.11.x (Linux Mint, Ubuntu or Debian 
 
 ------------------
 
+## Como fiz no Ubuntu 20.04.1 LTS
+
+`lsusb
+    deve identificar como ID 0bda:f179 Realtek Semiconductor Corp. 802.11n
+`mkdir realtek
+`cd realtek
+`sudo apt install git dkms module-assistant
+`sudo m-a update 
+`sudo m-a prepare
+`git clone https://github.com/alternatribe/rtl8188fu
+    é um fork de git clone https://github.com/kelebek333/rtl8188fu
+`sudo dkms add ./rtl8188fu
+`sudo dkms build rtl8188fu/1.0
+`sudo dkms install rtl8188fu/1.0
+`sudo cp ./rtl8188fu/firmware/rtl8188fufw.bin /lib/firmware/rtlwifi/
+Após isso reinicie o Ubuntu
+-----------------
+
 ## How to install
 
 `sudo apt-get install build-essential git dkms linux-headers-$(uname -r)`
